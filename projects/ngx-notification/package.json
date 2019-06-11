@@ -1,0 +1,28 @@
+{
+  "name": "ngx-kc-notification",
+  "version": "1.0.0",
+  "description":"A simple Angular library for notification system",
+  "author": "Kastriot Cunaku (kastriotcunaku@gmail.com)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kastriotcunaku/ngx-kc-notification.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kastriotcunaku/ngx-kc-notification/issues"
+  },
+  "homepage": "https://kastriotcunaku.github.io/ngx-kc-notification/",
+  "keywords": [
+    "notification",
+    "toast",
+    "angular",
+    "javascript",
+    "typescript",
+    "library",
+    "component"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^5.0.0",
+    "@angular/core": "^5.0.0"
+  }
+}

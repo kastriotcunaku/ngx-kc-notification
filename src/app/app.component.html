@@ -1,20 +1,96 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<ngx-notification></ngx-notification>
+<div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" alt="Angular" width="72" height="72">
+    <h2>ngx-kc-notification</h2>
+    <p class="lead">
+      A simple Angular library for notification system.
+    </p>
+    <div class="list-group list-group-horizontal-md d-flex justify-content-center">
+      <a href="https://github.com/kastriotcunaku/ngx-kc-notification" class="list-group-item">Github <img src="https://github.githubassets.com/pinned-octocat.svg" width="16" height="16" alt="Github"></a>
+      <a href="https://twitter.com/kastriotcunaku" class="list-group-item">Follow me <img src="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" width="16" height="16" alt="Follow me on Twitter"></a>
+      <a href="https://www.paypal.me/kastriotcunaku/5" class="list-group-item">Donate <img src="https://www.paypalobjects.com/webstatic/icon/pp32.png" width="16" height="16" alt="Donate via PayPal"></a>
+    </div>
+  </div>
+  <div class="card" *ngIf="!showCode">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="title" class="control-label">Title</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="options.title" />
+          </div>
+          <div class="form-group">
+            <label for="message" class="control-label">Message <span class="text-danger">*</span></label>
+            <textarea class="form-control" name="message" rows="3" id="message" [(ngModel)]="options.message" required></textarea>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="timeout" class="control-label">Timeout</label>
+            <div class="form-check form-check-inline float-right">
+              <input class="form-check-input" type="checkbox" name="disableTimeout" id="disableTimeout" [(ngModel)]="options.disableTimeout">
+              <label class="form-check-label" for="disableTimeout">Disable timeout</label>
+            </div>
+            <input type="number" class="form-control" name="timeout" id="timeout" [(ngModel)]="options.timeout" [disabled]="options.disableTimeout" />
+          </div>
+          <div class="form-group">
+            <label class="control-label">Other options</label><br />
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="backdropDismiss" id="backdropDismiss" [(ngModel)]="options.backdropDismiss">
+              <label class="form-check-label" for="backdropDismiss">Tap to dismiss</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="closeButton" id="closeButton" [(ngModel)]="options.closeButton">
+              <label class="form-check-label" for="closeButton">Close button</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="actionButtons" id="actionButtons" [(ngModel)]="options.actionButtons">
+              <label class="form-check-label" for="actionButtons">Show action buttons</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label class="control-label">Notification type</label><br />
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="notificationType" id="success" value="success" [(ngModel)]="options.type">
+              <label class="form-check-label text-success" for="success">Success</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="notificationType" id="info" value="info" [(ngModel)]="options.type">
+              <label class="form-check-label text-info" for="info">Info</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="notificationType" id="warning" value="warning" [(ngModel)]="options.type">
+              <label class="form-check-label text-warning" for="warning">Warning</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="notificationType" id="error" value="error" [(ngModel)]="options.type">
+              <label class="form-check-label text-danger" for="error">Danger</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <button type="button" class="btn btn-primary" (click)="showNotification()">Open notification</button>
+      <button type="button" class="btn btn-default" (click)="reset()">Reset form</button>
+      <button type="button" class="btn btn-dark float-right" (click)="showCode = true">Get code</button>
+    </div>
+  </div>
 
+  <div class="card" *ngIf="showCode">
+    <div class="card-body">
+      <pre><code [highlight]="getCode"></code></pre>
+      <hr />
+      <button type="button" class="btn btn-primary" (click)="showNotification()">Open notification</button>
+      <button type="button" class="btn btn-dark float-right" (click)="showCode = false">Back to demo</button>
+    </div>
+  </div>
+
+  <footer class="footer mb-4 mt-5 text-center">
+    <span class="text-muted">Angular 8.0.0</span>
+    <br>
+    <a href="https://github.com/kastriotcunaku/ngx-kc-notification/blob/master/LICENSE">MIT license</a> - <a href="https://github.com/kastriotcunaku/ngx-kc-notification">Source</a>
+  </footer>
+</div>
