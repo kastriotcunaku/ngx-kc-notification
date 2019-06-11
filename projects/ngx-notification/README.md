@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/kastriotcunaku/ngx-kc-notification/master/assets/preview.png" width="882" alt="ngx-kc-notification preview">
+  <img src="https://raw.githubusercontent.com/kastriotcunaku/ngx-kc-notification/master/src/assets/preview.png" width="882" alt="ngx-kc-notification preview">
   <br>
   <h1>ngx-kc-notification</h1>
 </div>
