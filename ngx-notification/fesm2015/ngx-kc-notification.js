@@ -446,4 +446,4 @@ NgxNotificationModule.decorators = [
  */
 
 export { NgxNotificationComponent, NgxNotificationModule, NgxNotificationService, template as ɵa, style as ɵb };
-//# sourceMappingURL=ngx-notification.js.map
+//# sourceMappingURL=ngx-kc-notification.js.map

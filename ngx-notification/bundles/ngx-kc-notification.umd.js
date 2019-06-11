@@ -1,7 +1,7 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('rxjs'), require('@angular/common')) :
-    typeof define === 'function' && define.amd ? define('ngx-notification', ['exports', '@angular/core', 'rxjs', '@angular/common'], factory) :
-    (global = global || self, factory(global['ngx-notification'] = {}, global.ng.core, global.rxjs, global.ng.common));
+    typeof define === 'function' && define.amd ? define('ngx-kc-notification', ['exports', '@angular/core', 'rxjs', '@angular/common'], factory) :
+    (global = global || self, factory(global['ngx-kc-notification'] = {}, global.ng.core, global.rxjs, global.ng.common));
 }(this, function (exports, core, rxjs, common) { 'use strict';
 
     /*! *****************************************************************************
@@ -402,4 +402,4 @@
     Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
-//# sourceMappingURL=ngx-notification.umd.js.map
+//# sourceMappingURL=ngx-kc-notification.umd.js.map

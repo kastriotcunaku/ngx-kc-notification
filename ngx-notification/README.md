@@ -1,24 +1,108 @@
-# NgxNotification
+<div align="center">
+  <img src="https://raw.githubusercontent.com/kastriotcunaku/ngx-kc-notification/master/src/assets/preview.png" width="882" alt="ngx-kc-notification preview">
+  <br>
+  <h1>ngx-kc-notification</h1>
+</div>
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+DEMO: https://kastriotcunaku.github.io/ngx-kc-notification/
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name --project ngx-notification` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-notification`.
-> Note: Don't forget to add `--project ngx-notification` or else it will be added to the default project in your `angular.json` file. 
+- Modern UI
+- Smooth animation
+- Different notification types
+- Show multiple notifications in the same time
+- Use as prompt with action buttons
+- Easy to install and use
 
-## Build
+## Dependencies
 
-Run `ng build ngx-notification` to build the project. The build artifacts will be stored in the `dist/` directory.
+| ngx-kc-notification | Angular |
+| ---------------- | ------- |
+| 1.0.0            | 5.x     |
 
-## Publishing
+## Install
 
-After building your library with `ng build ngx-notification`, go to the dist folder `cd dist/ngx-notification` and run `npm publish`.
+```bash
+npm install ngx-kc-notification --save
+```
 
-## Running unit tests
+## Setup
+**step 1:** Add NgxNotificationModule to AppModule
 
-Run `ng test ngx-notification` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+import { CommonModule } from '@angular/common';
 
-## Further help
+import { NgxNotificationModule } from 'ngx-notification';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  imports: [
+    CommonModule,
+    NgxNotificationModule // NgxNotificationModule added
+  ],
+  bootstrap: [App],
+  declarations: [App]
+})
+class AppModule {}
+```
+**step 2:** Add notification component tag on top of app.component.html
+
+```html
+<ngx-notification></ngx-notification>
+<!-- Your app template goes below -->
+```
+
+## Use
+
+```typescript
+import { Component } from '@angular/core';
+import { NgxNotificationService } from 'ngx-notification';
+
+@Component({
+  selector: 'my-component',
+  templateUrl: `
+  <button (click)="show()">Show notification</button>
+  `,
+  styleUrls: []
+})
+export class MyComponent {
+
+  constructor(private notification: NgxNotificationService) { }
+
+  show() {
+      this.notification.success('Your first notification');
+  }
+}
+```
+More examples and options can be found [here](https://kastriotcunaku.github.io/ngx-kc-notification/)
+
+
+## Options
+### Parameters
+| Option | Type | Description |
+| ------ | ---- | ----------- |
+| message | string | Notification message |
+| title | string | Notification Title |
+| buttons | NotificationButton[] | Notification action buttons |
+| options | NotificationOptions | Notification options |
+
+
+### NotificationButton
+| Option | Type | Description |
+| ------ | ---- | ----------- |
+| text | string | Button text |
+| callback | callback function | On click callback function |
+| dismiss | boolean | Dismiss notification on button click |
+
+
+### NotificationOptions
+| Option | Type | Description |
+| ------ | ---- | ----------- |
+| duration | number | Notification duration in milliseconds |
+| closeButton | boolean | Show X button on right corner |
+| backdropDismiss | boolean | Dismiss notification on backdrop click |
+
+
+## License
+
+MIT
