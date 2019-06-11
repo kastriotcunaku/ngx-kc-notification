@@ -7,6 +7,13 @@ import typescript from 'highlight.js/lib/languages/typescript';
 import { AppComponent } from './app.component';
 import { NgxNotificationModule } from 'ngx-notification';
 
+
+export function hljsLanguages() {
+  return [
+    { name: 'typescript', func: typescript }
+  ];
+}
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,9 +22,7 @@ import { NgxNotificationModule } from 'ngx-notification';
     BrowserModule,
     FormsModule,
     HighlightModule.forRoot({
-      languages: () => [
-        { name: 'typescript', func: typescript }
-      ]
+      languages: hljsLanguages
     }),
     NgxNotificationModule
   ],
