@@ -1,0 +1,21 @@
+{
+  "name": "ngx-notification",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^5.0.0",
+    "@angular/core": "^5.0.0"
+  },
+  "main": "bundles/ngx-notification.umd.js",
+  "module": "fesm5/ngx-notification.js",
+  "es2015": "fesm2015/ngx-notification.js",
+  "esm5": "esm5/ngx-notification.js",
+  "esm2015": "esm2015/ngx-notification.js",
+  "fesm5": "fesm5/ngx-notification.js",
+  "fesm2015": "fesm2015/ngx-notification.js",
+  "typings": "ngx-notification.d.ts",
+  "metadata": "ngx-notification.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}
