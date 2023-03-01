@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationModel } from './notification.model';
 import { NgxNotificationService } from './ngx-notification.service';
-import { template, style } from './ngx-notification.component.html';
 
 @Component({
   selector: 'ngx-notification',
-  template: template + ``,
-  styles: [ style + `` ]
+  templateUrl: './ngx-notification.component.html',
+  styleUrls: ['./ngx-notification.component.scss']
 })
 export class NgxNotificationComponent implements OnInit {
-  notification: NotificationModel[] = [];
+  notifications: NotificationModel[] = [];
   public visible = false;
   public visibleAnimate = false;
 
@@ -29,39 +28,43 @@ export class NgxNotificationComponent implements OnInit {
     }
   }
 
+  get length() {
+    return this.notifications?.length;
+  }
+
   async show(n: NotificationModel) {
     if (!n) {
       return;
     }
-    const newItemIndex = this.notification.push(n);
+    const newItemIndex = this.notifications.push(n);
     this.visible = true;
     this.visibleAnimate = true;
-    if (n.options.duration !== -1) {
-      setTimeout(() => this.dismiss(newItemIndex - 1), n.options.duration);
+    if (n.options?.duration !== -1) {
+      setTimeout(() => this.dismiss(newItemIndex - 1), n.options?.duration);
     }
   }
 
-  async dismiss(index?: number, rel?: string) {
+  async dismiss(index: number | null, rel?: string) {
     if (index === null || typeof index === 'undefined') {
-      if (this.notification.length > 0) {
-        for (let i = 0; i < this.notification.length; i++) {
+      if (this.notifications.length > 0) {
+        for (let i = 0; i < this.notifications.length; i++) {
           this.dismiss(i, rel);
         }
       }
       return;
     } else {
-      if (this.notification[index]) {
+      if (this.notifications[index]) {
         if (
           rel === 'backdrop' &&
-          this.notification[index].options.backdropDismiss === false
+          this.notifications[index].options?.backdropDismiss === false
         ) {
           return;
         }
 
-        this.notification[index].hide = true;
+        this.notifications[index].hide = true;
         await setTimeout(() => {
-          this.notification.splice(index, 1);
-          if (this.notification.length === 0) {
+          this.notifications.splice(index, 1);
+          if (this.notifications.length === 0) {
             this.visibleAnimate = false;
             setTimeout(() => (this.visible = false), 300);
           }

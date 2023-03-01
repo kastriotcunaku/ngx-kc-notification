@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
             callback: null,
             dismiss: true
           }
-        ] : null, {
+        ] : undefined, {
           backdropDismiss: this.options.backdropDismiss,
           closeButton: this.options.closeButton,
           duration: this.options.disableTimeout ? -1 : this.options.timeout
@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
             callback: null,
             dismiss: true
           }
-        ] : null, {
+        ] : undefined, {
           backdropDismiss: this.options.backdropDismiss,
           closeButton: this.options.closeButton,
           duration: this.options.disableTimeout ? -1 : this.options.timeout
@@ -78,7 +78,7 @@ export class AppComponent implements OnInit {
             callback: null,
             dismiss: true
           }
-        ] : null, {
+        ] : undefined, {
           backdropDismiss: this.options.backdropDismiss,
           closeButton: this.options.closeButton,
           duration: this.options.disableTimeout ? -1 : this.options.timeout
@@ -96,7 +96,7 @@ export class AppComponent implements OnInit {
             callback: null,
             dismiss: true
           }
-        ] : null, {
+        ] : undefined, {
           backdropDismiss: this.options.backdropDismiss,
           closeButton: this.options.closeButton,
           duration: this.options.disableTimeout ? -1 : this.options.timeout

@@ -56,7 +56,7 @@ export class NgxNotificationService {
     });
   }
 
-  private setOptions(opt: NotificationOptions): NotificationOptions {
+  private setOptions(opt?: NotificationOptions): NotificationOptions {
     const options = {
       duration: 3000,
       closeButton: false,
